@@ -1,4 +1,5 @@
 import io
+import os
 import re
 
 import requests
@@ -8,6 +9,7 @@ from PIL import Image
 def main():
     visited_pages = set()
     pages = list(set(re.findall(r'\w+\.htm', str(requests.get(f'https://www.datingariane.com').content))))
+    os.makedirs('images')
     while pages:
         print(f'{len(pages)} remaining')
         page = pages.pop()
